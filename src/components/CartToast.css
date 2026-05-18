@@ -1,0 +1,39 @@
+.cart-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--espresso);
+  color: var(--cream);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px var(--shadow);
+  z-index: 2000;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 0.5s var(--ease-out-expo), opacity 0.4s;
+}
+
+.cart-toast--visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.cart-toast img {
+  width: 48px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.cart-toast strong {
+  display: block;
+  font-size: 0.85rem;
+}
+
+.cart-toast span {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}

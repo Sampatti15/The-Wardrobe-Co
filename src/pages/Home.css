@@ -1,0 +1,245 @@
+.home {
+  padding-top: var(--nav-height);
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  padding: 4rem 0 6rem;
+  overflow: hidden;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+}
+
+.hero__eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 1rem;
+}
+
+.hero__title {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  margin-bottom: 1.25rem;
+}
+
+.hero__title em {
+  font-style: italic;
+  color: var(--cocoa);
+}
+
+.hero__desc {
+  font-size: 1.1rem;
+  color: var(--cocoa);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero__gallery {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 1;
+}
+
+.hero__frame {
+  width: clamp(140px, 18vw, 220px);
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px var(--shadow);
+  animation: float 5s ease-in-out infinite;
+}
+
+.hero__frame:nth-child(2) {
+  margin-top: 3rem;
+  animation-delay: 0.5s;
+}
+
+.hero__frame:nth-child(3) {
+  margin-top: -2rem;
+  animation-delay: 1s;
+}
+
+.hero__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cocoa);
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--terracotta), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+.marquee {
+  background: var(--espresso);
+  color: var(--cream);
+  padding: 1rem 0;
+  overflow: hidden;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee__track span {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  white-space: nowrap;
+  padding-right: 3rem;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.featured {
+  padding: 6rem 0;
+}
+
+.featured__header {
+  margin-bottom: 3rem;
+}
+
+.featured__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.featured__link {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.lookbook {
+  background: var(--sand);
+  padding: 6rem 0;
+}
+
+.lookbook__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.lookbook__text h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.lookbook__text p {
+  color: var(--cocoa);
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+
+.lookbook__images {
+  position: relative;
+  min-height: 420px;
+}
+
+.lookbook__img {
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px var(--shadow);
+}
+
+.lookbook__img--1 {
+  width: 70%;
+  aspect-ratio: 4 / 5;
+}
+
+.lookbook__img--2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 55%;
+  aspect-ratio: 3 / 4;
+  border: 6px solid var(--cream);
+}
+
+@media (max-width: 1024px) {
+  .hero__gallery {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .hero__content {
+    margin-inline: auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .lookbook__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__frame:nth-child(2),
+  .hero__frame:nth-child(3) {
+    margin-top: 0;
+  }
+}
